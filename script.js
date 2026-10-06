@@ -1,75 +1,31 @@
 const menuButton = document.getElementById("menuButton");
 const mobileMenu = document.getElementById("mobileMenu");
 
-const searchButton = document.getElementById("searchButton");
-const searchOverlay = document.getElementById("searchOverlay");
-const closeSearch = document.getElementById("closeSearch");
-const searchInput = document.getElementById("searchInput");
 
+if (menuButton && mobileMenu) {
 
-/* ================= MOBILE MENU ================= */
+    menuButton.addEventListener("click", () => {
 
-menuButton.addEventListener("click", () => {
+        mobileMenu.classList.toggle("open");
 
-    mobileMenu.classList.toggle("active");
-
-});
-
-
-/* Fecha o menu quando clicar em um link */
-
-document.querySelectorAll(".mobile-menu a").forEach(link => {
-
-    link.addEventListener("click", () => {
-
-        mobileMenu.classList.remove("active");
+        document.body.classList.toggle("menu-open");
 
     });
 
-});
+
+    const mobileLinks = mobileMenu.querySelectorAll("a");
 
 
-/* ================= SEARCH ================= */
+    mobileLinks.forEach(link => {
 
-searchButton.addEventListener("click", () => {
+        link.addEventListener("click", () => {
 
-    searchOverlay.classList.add("active");
+            mobileMenu.classList.remove("open");
 
-    setTimeout(() => {
-        searchInput.focus();
-    }, 100);
+            document.body.classList.remove("menu-open");
 
-});
+        });
 
+    });
 
-closeSearch.addEventListener("click", () => {
-
-    searchOverlay.classList.remove("active");
-
-});
-
-
-/* Fecha pesquisa clicando fora */
-
-searchOverlay.addEventListener("click", (event) => {
-
-    if (event.target === searchOverlay) {
-
-        searchOverlay.classList.remove("active");
-
-    }
-
-});
-
-
-/* ESC fecha pesquisa */
-
-document.addEventListener("keydown", (event) => {
-
-    if (event.key === "Escape") {
-
-        searchOverlay.classList.remove("active");
-
-    }
-
-});
+}
