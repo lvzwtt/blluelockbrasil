@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,25 +20,28 @@
 
     <header class="header">
 
-        <div class="logo">
+        <a href="#" class="logo">
             BLUE<span>LOCK</span>
-        </div>
+        </a>
 
         <nav class="nav">
             <a href="#" class="active">Início</a>
             <a href="#biblioteca">Biblioteca</a>
             <a href="#capitulos">Capítulos</a>
+            <a href="#sobre">Sobre</a>
+            <a href="#contatos">Contatos</a>
+            <a href="#doacao">Doação</a>
         </nav>
 
         <div class="header-actions">
 
-            <button class="search-button" id="searchButton">
+            <button class="search-button" id="searchButton" aria-label="Pesquisar">
                 <svg viewBox="0 0 24 24">
                     <path d="M21 21l-4.35-4.35m2.1-5.4a7.5 7.5 0 1 1-15 0 7.5 7.5 0 0 1 15 0Z"/>
                 </svg>
             </button>
 
-            <button class="menu-button" id="menuButton">
+            <button class="menu-button" id="menuButton" aria-label="Abrir menu">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -55,6 +59,9 @@
         <a href="#">Início</a>
         <a href="#biblioteca">Biblioteca</a>
         <a href="#capitulos">Capítulos</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#contatos">Contatos</a>
+        <a href="#doacao">Doação</a>
 
     </div>
 
@@ -63,7 +70,7 @@
 
     <main>
 
-        <!-- HERO -->
+        <!-- ================= HERO ================= -->
 
         <section class="hero">
 
@@ -101,7 +108,55 @@
 
                 <div class="cover-glow"></div>
 
-                <img src="assets/capa.jpg" alt="Capa do mangá">
+                <img src="capa.jpg" alt="Capa do mangá Blue Lock">
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= AVISO FAN-MADE ================= -->
+
+        <section class="fanmade-notice">
+
+            <div class="fanmade-notice-inner">
+
+                <div class="fanmade-notice-label">
+
+                    <span>PROJETO FAN-MADE</span>
+
+                    <h2>
+                        NÃO<br>
+                        <span>OFICIAL.</span>
+                    </h2>
+
+                </div>
+
+                <div class="fanmade-notice-text">
+
+                    <p>
+                        <strong>Blue Lock: World Challenge</strong> é um projeto independente,
+                        não oficial e desenvolvido por fãs, criado como uma homenagem ao
+                        universo de <em>Blue Lock</em>.
+                    </p>
+
+                    <p>
+                        O projeto não possui vínculo, afiliação, patrocínio ou autorização
+                        dos autores, editoras ou demais detentores dos direitos da obra original.
+                    </p>
+
+                    <p>
+                        Todos os direitos relacionados a <em>Blue Lock</em>, seus personagens
+                        e elementos pertencentes à obra original permanecem de seus respectivos
+                        detentores.
+                    </p>
+
+                    <p>
+                        O World Challenge não tem a intenção de se apresentar como uma produção
+                        oficial ou reivindicar propriedade sobre elementos pertencentes a terceiros.
+                    </p>
+
+                </div>
 
             </div>
 
@@ -125,11 +180,10 @@
 
             </div>
 
-
             <div class="continue-card">
 
                 <div class="continue-cover">
-                    <img src="assets/capa.jpg" alt="Capa">
+                    <img src="capa.jpg" alt="Capa do mangá">
                 </div>
 
                 <div class="continue-info">
@@ -145,9 +199,7 @@
                     </p>
 
                     <div class="progress">
-
                         <div class="progress-bar"></div>
-
                     </div>
 
                     <div class="continue-bottom">
@@ -185,16 +237,13 @@
 
             </div>
 
-
             <div class="manga-grid">
-
-                <!-- CARD -->
 
                 <article class="manga-card">
 
                     <div class="manga-cover">
 
-                        <img src="assets/capa.jpg" alt="Capítulo 01">
+                        <img src="capa.jpg" alt="Capítulo 01">
 
                         <span class="chapter-tag">
                             CAP. 01
@@ -204,20 +253,14 @@
 
                     <div class="manga-card-info">
 
-                        <h3>
-                            O início
-                        </h3>
+                        <h3>O início</h3>
 
-                        <p>
-                            Capítulo 01
-                        </p>
+                        <p>Capítulo 01</p>
 
                     </div>
 
                 </article>
 
-
-                <!-- CARD -->
 
                 <article class="manga-card">
 
@@ -233,26 +276,20 @@
 
                     <div class="manga-card-info">
 
-                        <h3>
-                            Novo desafio
-                        </h3>
+                        <h3>Novo desafio</h3>
 
-                        <p>
-                            Capítulo 02
-                        </p>
+                        <p>Capítulo 02</p>
 
                     </div>
 
                 </article>
 
 
-                <!-- CARD -->
-
                 <article class="manga-card">
 
                     <div class="manga-cover">
 
-                        <img src="assets/capa.jpg" alt="Capítulo 03">
+                        <img src="capa.jpg" alt="Capítulo 03">
 
                         <span class="chapter-tag">
                             CAP. 03
@@ -262,20 +299,14 @@
 
                     <div class="manga-card-info">
 
-                        <h3>
-                            A evolução
-                        </h3>
+                        <h3>A evolução</h3>
 
-                        <p>
-                            Capítulo 03
-                        </p>
+                        <p>Capítulo 03</p>
 
                     </div>
 
                 </article>
 
-
-                <!-- CARD -->
 
                 <article class="manga-card">
 
@@ -291,13 +322,9 @@
 
                     <div class="manga-card-info">
 
-                        <h3>
-                            Instinto
-                        </h3>
+                        <h3>Instinto</h3>
 
-                        <p>
-                            Capítulo 04
-                        </p>
+                        <p>Capítulo 04</p>
 
                     </div>
 
@@ -321,14 +348,11 @@
 
             </div>
 
-
             <div class="chapter-list">
 
                 <a href="#" class="chapter">
 
-                    <div class="chapter-number">
-                        01
-                    </div>
+                    <div class="chapter-number">01</div>
 
                     <div class="chapter-text">
                         <strong>O início</strong>
@@ -342,9 +366,7 @@
 
                 <a href="#" class="chapter">
 
-                    <div class="chapter-number">
-                        02
-                    </div>
+                    <div class="chapter-number">02</div>
 
                     <div class="chapter-text">
                         <strong>Novo desafio</strong>
@@ -358,9 +380,7 @@
 
                 <a href="#" class="chapter">
 
-                    <div class="chapter-number">
-                        03
-                    </div>
+                    <div class="chapter-number">03</div>
 
                     <div class="chapter-text">
                         <strong>A evolução</strong>
@@ -374,9 +394,7 @@
 
                 <a href="#" class="chapter">
 
-                    <div class="chapter-number">
-                        04
-                    </div>
+                    <div class="chapter-number">04</div>
 
                     <div class="chapter-text">
                         <strong>Instinto</strong>
@@ -385,6 +403,95 @@
 
                     <span class="chapter-arrow">→</span>
 
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= SOBRE ================= -->
+
+        <section class="section information-section" id="sobre">
+
+            <div class="section-header">
+
+                <div>
+                    <span class="section-label">SOBRE O PROJETO</span>
+                    <h2>Uma obra feita por fãs</h2>
+                </div>
+
+            </div>
+
+            <div class="information-card">
+
+                <p>
+                    Blue Lock: World Challenge é um projeto independente criado por fãs,
+                    inspirado no universo de Blue Lock.
+                </p>
+
+                <p>
+                    O objetivo é compartilhar uma história feita por fãs e reunir leitores
+                    que gostam da obra original.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= CONTATOS ================= -->
+
+        <section class="section information-section" id="contatos">
+
+            <div class="section-header">
+
+                <div>
+                    <span class="section-label">CONTATOS</span>
+                    <h2>Fale com o projeto</h2>
+                </div>
+
+            </div>
+
+            <div class="information-card">
+
+                <p>
+                    Para dúvidas, sugestões ou outros assuntos relacionados ao projeto,
+                    entre em contato pelos canais oficiais.
+                </p>
+
+                <a href="redes.html" class="text-link">
+                    VER REDES E CONTATOS →
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= DOAÇÃO ================= -->
+
+        <section class="section information-section" id="doacao">
+
+            <div class="section-header">
+
+                <div>
+                    <span class="section-label">APOIE O PROJETO</span>
+                    <h2>Ajude a manter a obra</h2>
+                </div>
+
+            </div>
+
+            <div class="information-card donation-card">
+
+                <p>
+                    Se você gosta do projeto e deseja contribuir com sua continuidade,
+                    acesse nossa página de doações.
+                </p>
+
+                <a href="doacao.html" class="primary-button">
+                    Doar agora
+                    <span>→</span>
                 </a>
 
             </div>
@@ -405,6 +512,14 @@
         <p>
             Fan-made project inspirado em Blue Lock.
         </p>
+
+        <div class="footer-links">
+
+            <a href="#sobre">Sobre</a>
+            <a href="#contatos">Contatos</a>
+            <a href="#doacao">Doação</a>
+
+        </div>
 
         <span class="copyright">
             © 2026 — Projeto independente de fãs.
