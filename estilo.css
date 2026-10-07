@@ -16,6 +16,7 @@
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 90px;
 }
 
 body {
@@ -25,30 +26,34 @@ body {
     min-height: 100vh;
 }
 
+a {
+    color: inherit;
+}
+
 
 /* ================= HEADER ================= */
 
 .header {
-    height: 76px;
+    min-height: 76px;
     padding: 0 6%;
     display: flex;
     align-items: center;
     justify-content: space-between;
-
+    gap: 25px;
     border-bottom: 1px solid var(--border);
-
     position: sticky;
     top: 0;
     z-index: 100;
-
     background: rgba(9,10,13,0.92);
     backdrop-filter: blur(18px);
 }
 
 .logo {
+    flex-shrink: 0;
     font-size: 19px;
     font-weight: 800;
     letter-spacing: -1px;
+    text-decoration: none;
 }
 
 .logo span,
@@ -58,16 +63,17 @@ body {
 
 .nav {
     display: flex;
-    gap: 38px;
+    align-items: center;
+    gap: 28px;
 }
 
 .nav a {
     color: var(--muted);
     text-decoration: none;
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 600;
-
     transition: 0.2s;
+    white-space: nowrap;
 }
 
 .nav a:hover,
@@ -91,7 +97,6 @@ body {
 .search-button svg {
     width: 20px;
     height: 20px;
-
     fill: none;
     stroke: white;
     stroke-width: 1.7;
@@ -122,12 +127,9 @@ body {
 .hero {
     max-width: 1180px;
     margin: auto;
-
     padding: 100px 6% 110px;
-
     display: grid;
     grid-template-columns: 1.2fr 0.8fr;
-
     align-items: center;
     gap: 80px;
 }
@@ -136,19 +138,14 @@ body {
 .section-label {
     font-size: 10px;
     font-weight: 800;
-
     letter-spacing: 2px;
-
     color: #727680;
 }
 
 .hero h1 {
     font-size: clamp(48px, 7vw, 88px);
-
     line-height: 0.88;
-
     letter-spacing: -5px;
-
     margin: 22px 0;
 }
 
@@ -158,35 +155,40 @@ body {
 
 .hero-info p {
     max-width: 450px;
-
     color: var(--muted);
-
     font-size: 15px;
     line-height: 1.7;
-
     margin-bottom: 30px;
 }
 
 .hero-buttons {
     display: flex;
+    flex-wrap: wrap;
     gap: 12px;
 }
 
 .primary-button,
 .secondary-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     padding: 14px 20px;
-
     border-radius: 9px;
-
     text-decoration: none;
-
     font-size: 12px;
     font-weight: 700;
+    transition: 0.2s;
 }
 
 .primary-button {
     background: white;
     color: black;
+    border: 1px solid white;
+}
+
+.primary-button:hover {
+    background: #dcdde0;
+    transform: translateY(-2px);
 }
 
 .primary-button span {
@@ -199,40 +201,44 @@ body {
     background: var(--surface);
 }
 
+.secondary-button:hover {
+    background: var(--surface-light);
+    border-color: rgba(255,255,255,0.2);
+}
+
+
+/* ================= CAPA ================= */
+
 .hero-cover {
     position: relative;
-
     display: flex;
     justify-content: center;
+    align-items: center;
+    min-width: 0;
 }
 
 .hero-cover img {
     position: relative;
-
+    display: block;
     width: min(320px, 100%);
-
     aspect-ratio: 0.7;
-
     object-fit: cover;
-
     border-radius: 12px;
-
-    box-shadow:
-        0 30px 80px rgba(0,0,0,0.7);
-
+    box-shadow: 0 30px 80px rgba(0,0,0,0.7);
     z-index: 2;
+    transition: transform 0.3s ease;
+}
+
+.hero-cover img:hover {
+    transform: translateY(-5px);
 }
 
 .cover-glow {
     position: absolute;
-
     width: 250px;
     height: 250px;
-
     background: rgba(255,255,255,0.06);
-
     filter: blur(80px);
-
     border-radius: 50%;
 }
 
@@ -241,9 +247,7 @@ body {
 
 .section {
     max-width: 1180px;
-
     margin: auto;
-
     padding: 0 6% 100px;
 }
 
@@ -251,28 +255,40 @@ body {
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
-
+    gap: 20px;
     margin-bottom: 28px;
 }
 
 .section h2 {
     font-size: 25px;
-
     letter-spacing: -1px;
-
     margin-top: 8px;
 }
 
 .view-all {
     color: var(--muted);
-
     font-size: 11px;
-
     text-decoration: none;
+    white-space: nowrap;
 }
 
 .view-all:hover {
     color: white;
+}
+
+.filter-button {
+    background: var(--surface);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 14px;
+    font: inherit;
+    font-size: 11px;
+    cursor: pointer;
+}
+
+.filter-button span {
+    margin-left: 12px;
 }
 
 
@@ -280,105 +296,81 @@ body {
 
 .continue-card {
     background: var(--surface);
-
     border: 1px solid var(--border);
-
     border-radius: 15px;
-
     padding: 18px;
-
     display: flex;
-
     gap: 25px;
-
     max-width: 720px;
 }
 
 .continue-cover {
     width: 110px;
-
     flex-shrink: 0;
 }
 
 .continue-cover img {
+    display: block;
     width: 100%;
-
     aspect-ratio: 0.7;
-
     object-fit: cover;
-
     border-radius: 8px;
 }
 
 .continue-info {
     padding: 8px 0;
-
     flex: 1;
+    min-width: 0;
 }
 
 .continue-info > span {
     font-size: 9px;
-
     letter-spacing: 1.5px;
-
     color: #737780;
-
     font-weight: 800;
 }
 
 .continue-info h3 {
     font-size: 20px;
-
     margin: 10px 0;
 }
 
 .continue-info p {
     font-size: 12px;
-
     color: var(--muted);
-
     margin-bottom: 25px;
 }
 
 .progress {
     height: 3px;
-
     background: #272a31;
-
     border-radius: 10px;
-
     overflow: hidden;
 }
 
 .progress-bar {
     width: 35%;
     height: 100%;
-
     background: white;
 }
 
 .continue-bottom {
     margin-top: 12px;
-
     display: flex;
-
     justify-content: space-between;
     align-items: center;
+    gap: 12px;
 }
 
 .continue-bottom small {
     color: #656872;
-
     font-size: 10px;
 }
 
 .continue-bottom a {
     color: white;
-
     font-size: 11px;
-
     font-weight: 700;
-
     text-decoration: none;
 }
 
@@ -387,35 +379,27 @@ body {
 
 .manga-grid {
     display: grid;
-
     grid-template-columns: repeat(4, 1fr);
-
     gap: 20px;
 }
 
 .manga-card {
     cursor: pointer;
+    min-width: 0;
 }
 
 .manga-cover {
     position: relative;
-
     overflow: hidden;
-
     border-radius: 10px;
-
     background: var(--surface);
 }
 
 .manga-cover img {
     display: block;
-
     width: 100%;
-
     aspect-ratio: 0.7;
-
     object-fit: cover;
-
     transition: transform 0.4s;
 }
 
@@ -425,20 +409,13 @@ body {
 
 .chapter-tag {
     position: absolute;
-
     left: 10px;
     bottom: 10px;
-
     padding: 6px 8px;
-
     background: rgba(0,0,0,0.8);
-
     border-radius: 5px;
-
     font-size: 8px;
-
     font-weight: 800;
-
     letter-spacing: 1px;
 }
 
@@ -448,13 +425,11 @@ body {
 
 .manga-card-info h3 {
     font-size: 13px;
-
     margin-bottom: 5px;
 }
 
 .manga-card-info p {
     color: var(--muted);
-
     font-size: 10px;
 }
 
@@ -471,19 +446,12 @@ body {
 
 .chapter {
     display: flex;
-
     align-items: center;
-
     gap: 20px;
-
     padding: 20px 10px;
-
     border-bottom: 1px solid var(--border);
-
     color: white;
-
     text-decoration: none;
-
     transition: 0.2s;
 }
 
@@ -494,21 +462,16 @@ body {
 
 .chapter-number {
     width: 45px;
-
+    flex-shrink: 0;
     font-size: 13px;
-
     color: #5e626b;
-
     font-weight: 800;
 }
 
 .chapter-text {
     display: flex;
-
     flex-direction: column;
-
     gap: 5px;
-
     flex: 1;
 }
 
@@ -518,14 +481,119 @@ body {
 
 .chapter-text span {
     font-size: 10px;
-
     color: var(--muted);
 }
 
 .chapter-arrow {
     color: #686c75;
-
     font-size: 17px;
+}
+
+
+/* ================= AVISO FAN-MADE ================= */
+
+.fanmade-notice {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 6% 100px;
+}
+
+.fanmade-notice-inner {
+    display: grid;
+    grid-template-columns: 0.65fr 1.35fr;
+    gap: 45px;
+    padding: 35px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 15px;
+}
+
+.fanmade-notice-label > span {
+    display: block;
+    color: #777b84;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    line-height: 1.6;
+}
+
+.fanmade-notice-label h2 {
+    color: white;
+    font-size: 30px;
+    line-height: 1;
+    letter-spacing: -1px;
+    margin-top: 15px;
+}
+
+.fanmade-notice-label h2 span {
+    color: #777b84;
+}
+
+.fanmade-notice-text {
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+.fanmade-notice-text p {
+    margin-bottom: 15px;
+}
+
+.fanmade-notice-text p:last-child {
+    margin-bottom: 0;
+}
+
+.fanmade-notice-text strong {
+    color: white;
+}
+
+.fanmade-notice-text em {
+    color: #d5d7db;
+}
+
+
+/* ================= SOBRE / CONTATOS / DOAÇÃO ================= */
+
+.information-section {
+    scroll-margin-top: 100px;
+}
+
+.information-card {
+    padding: 25px;
+    max-width: 850px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+}
+
+.information-card p {
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+.information-card p:last-of-type {
+    margin-bottom: 0;
+}
+
+.text-link {
+    display: inline-block;
+    margin-top: 20px;
+    color: white;
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    transition: 0.2s;
+}
+
+.text-link:hover {
+    color: #aeb2ba;
+}
+
+.donation-card .primary-button {
+    margin-top: 22px;
 }
 
 
@@ -533,29 +601,42 @@ body {
 
 footer {
     border-top: 1px solid var(--border);
-
     padding: 50px 6%;
-
     text-align: center;
 }
 
 .footer-logo {
     font-weight: 800;
-
     font-size: 17px;
 }
 
 footer p {
     color: var(--muted);
-
     font-size: 11px;
-
     margin: 12px 0;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 24px;
+    margin: 25px 0;
+}
+
+.footer-links a {
+    color: var(--muted);
+    font-size: 11px;
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+.footer-links a:hover {
+    color: white;
 }
 
 .copyright {
     color: #454850;
-
     font-size: 9px;
 }
 
@@ -564,18 +645,12 @@ footer p {
 
 .search-overlay {
     position: fixed;
-
     inset: 0;
-
     background: rgba(0,0,0,0.75);
-
     backdrop-filter: blur(10px);
-
     display: none;
-
     align-items: center;
     justify-content: center;
-
     z-index: 500;
 }
 
@@ -585,69 +660,81 @@ footer p {
 
 .search-box {
     width: min(500px, 90%);
-
     position: relative;
 }
 
-.search-box span {
+.search-box > span {
     display: block;
-
     font-size: 10px;
-
     letter-spacing: 2px;
-
     color: #777b84;
-
     margin-bottom: 12px;
 }
 
 .search-box input {
     width: 100%;
-
     background: var(--surface);
-
     border: 1px solid var(--border);
-
     color: white;
-
     padding: 18px;
-
     border-radius: 10px;
-
     outline: none;
-
     font-size: 15px;
 }
 
 .close-search {
     position: absolute;
-
     right: 0;
     top: -35px;
-
     border: none;
-
     background: none;
-
     color: white;
-
     font-size: 25px;
-
     cursor: pointer;
 }
 
 
 /* ================= TABLET ================= */
 
+@media (max-width: 1000px) {
+
+    .header {
+        padding: 0 4%;
+    }
+
+    .nav {
+        gap: 17px;
+    }
+
+    .nav a {
+        font-size: 11px;
+    }
+
+    .hero {
+        gap: 45px;
+    }
+
+    .fanmade-notice-inner {
+        gap: 30px;
+    }
+
+}
+
+
 @media (max-width: 850px) {
+
+    .nav {
+        display: none;
+    }
+
+    .menu-button {
+        display: block;
+    }
 
     .hero {
         grid-template-columns: 1fr;
-
         text-align: center;
-
         padding-top: 70px;
-
         gap: 45px;
     }
 
@@ -668,6 +755,11 @@ footer p {
         grid-template-columns: repeat(3, 1fr);
     }
 
+    .fanmade-notice-inner {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
 }
 
 
@@ -676,50 +768,31 @@ footer p {
 @media (max-width: 600px) {
 
     .header {
-        height: 66px;
-
+        min-height: 66px;
         padding: 0 5%;
-    }
-
-    .nav {
-        display: none;
-    }
-
-    .menu-button {
-        display: block;
     }
 
     .mobile-menu {
         position: fixed;
-
         top: 66px;
         left: 0;
         right: 0;
-
         background: #0d0e12;
-
         border-bottom: 1px solid var(--border);
-
         padding: 20px;
-
         z-index: 90;
     }
 
     .mobile-menu.active {
         display: flex;
-
         flex-direction: column;
-
         gap: 20px;
     }
 
     .mobile-menu a {
         color: white;
-
         text-decoration: none;
-
         font-size: 13px;
-
         font-weight: 600;
     }
 
@@ -729,7 +802,6 @@ footer p {
 
     .hero h1 {
         font-size: 52px;
-
         letter-spacing: -3px;
     }
 
@@ -744,13 +816,11 @@ footer p {
     .section {
         padding-left: 5%;
         padding-right: 5%;
-
         padding-bottom: 70px;
     }
 
     .section-header {
         align-items: flex-start;
-
         gap: 15px;
     }
 
@@ -760,7 +830,6 @@ footer p {
 
     .continue-card {
         padding: 13px;
-
         gap: 15px;
     }
 
@@ -774,13 +843,11 @@ footer p {
 
     .continue-info p {
         font-size: 10px;
-
         margin-bottom: 17px;
     }
 
     .manga-grid {
         grid-template-columns: repeat(2, 1fr);
-
         gap: 16px;
     }
 
@@ -790,12 +857,37 @@ footer p {
 
     .chapter {
         gap: 13px;
-
         padding: 17px 4px;
     }
 
     .chapter-number {
         width: 30px;
+    }
+
+    .fanmade-notice {
+        padding-left: 5%;
+        padding-right: 5%;
+        padding-bottom: 70px;
+    }
+
+    .fanmade-notice-inner {
+        padding: 25px 22px;
+    }
+
+    .fanmade-notice-label h2 {
+        font-size: 25px;
+    }
+
+    .fanmade-notice-text {
+        font-size: 11px;
+    }
+
+    .information-card {
+        padding: 20px;
+    }
+
+    .footer-links {
+        gap: 17px;
     }
 
 }
